@@ -1,0 +1,16 @@
+
+import pandas as pd
+import streamlit as st
+from datetime import datetime
+
+def calculate_human_months(periods):
+    total_months = set()
+    results = []
+    
+    for period in periods:
+        start_str, end_str = period.split('-')
+        
+        # Προσπάθεια αναγνώρισης μορφής ημερομηνίας
+        try:
+            start_date = datetime.strptime(start_str.strip(), '%d/%m/%Y')
+        except ValueError:
